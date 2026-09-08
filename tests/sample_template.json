@@ -1,0 +1,84 @@
+{
+  "version": "2.0",
+  "canvas": {
+    "width": 1080,
+    "height": 1080,
+    "background": "#F3F4F6"
+  },
+  "layers": {
+    "ROOT": {
+      "type": { "resolvedName": "RootCanvas" },
+      "props": { "width": 1080, "height": 1080 }
+    },
+    "layer-headline-001": {
+      "ai_label": "Main Headline",
+      "type": {
+        "resolvedName": "TextLayer",
+        "replacableText": "Summer Super Sale"
+      },
+      "props": {
+        "doc": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "attrs": {
+                "color": "#1F2937",
+                "fontSize": 36,
+                "lineHeight": 1.2
+              },
+              "content": [
+                {
+                  "type": "text",
+                  "text": "Summer Super Sale"
+                }
+              ]
+            }
+          ]
+        },
+        "colors": ["#1F2937"]
+      }
+    },
+    "layer-discount-002": {
+      "ai_label": "Discount Badge Text",
+      "type": {
+        "resolvedName": "TextLayer",
+        "replacableText": "30% OFF"
+      },
+      "props": {
+        "doc": {
+          "type": "doc",
+          "content": [
+            {
+              "type": "paragraph",
+              "attrs": {
+                "color": "#DC2626",
+                "fontSize": 48,
+                "fontWeight": "bold"
+              },
+              "content": [
+                {
+                  "type": "text",
+                  "text": "30% OFF"
+                }
+              ]
+            }
+          ]
+        },
+        "colors": ["#DC2626"]
+      }
+    },
+    "layer-image-003": {
+      "ai_label": "Middle Food Image",
+      "type": {
+        "resolvedName": "FrameLayer"
+      },
+      "props": {
+        "image": {
+          "url": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
+          "thumb": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=200"
+        }
+      }
+    }
+  }
+}
