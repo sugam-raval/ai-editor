@@ -120,3 +120,41 @@ async def test_edit_template_validation_error():
         # Missing user_prompt
         response = await client.post("/api/ai/edit-template", json={"user_prompt": "", "template_json": {}})
         assert response.status_code == 400
+
+
+@pytest.mark.asyncio
+async def test_edit_template_target_layer_id():
+    class MockTargetedLLM:
+        def bind_tools(self, tools):
+            return self
+
+        async def ainvoke(self, messages):
+            # Check if system message includes targeted layer constraint
+            sys_msg = messages[0].content
+            assert "TARGETED LAYER CONSTRAINTS" in sys_msg
+            assert "layer-discount-002" in sys_msg
+            return AIMessage(
+                content="Updated targeted layer",
+                tool_calls=[{
+                    "name": "update_text_color",
+                    "args": {"layer_id": "layer-discount-002", "new_color": "#ff0000"},
+                    "id": "call_target_1"
+                }]
+            )
+
+    mock_graph = build_app_graph(custom_llm=MockTargetedLLM())
+    set_graph(mock_graph)
+
+    transport = ASGITransport(app=app)
+    async with AsyncClient(transport=transport, base_url="http://test") as client:
+        payload = {
+            "user_prompt": "make it red",
+            "template_json": load_sample_template(),
+            "target_layer_id": "layer-discount-002"
+        }
+        response = await client.post("/api/ai/edit-template", json=payload)
+        assert response.status_code == 200
+        data = response.json()
+        assert data["success"] is True
+        assert data["ai_message"] == "Updated targeted layer"
+

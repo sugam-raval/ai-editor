@@ -3,6 +3,9 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
+
 from app.api.routes import router
 from app.config import settings
 
@@ -47,3 +50,14 @@ app.add_middleware(
 
 # Register routes
 app.include_router(router)
+
+# Mount static directory for UI studio
+app.mount("/static", StaticFiles(directory="static"), name="static")
+app.mount("/tests", StaticFiles(directory="tests"), name="tests")
+
+
+@app.get("/", include_in_schema=False)
+async def serve_ui():
+    return FileResponse("static/index.html")
+
+

@@ -65,10 +65,10 @@ async def prune_template_endpoint(request: PruneRequest):
     Returns the token-optimized lightweight JSON that is passed to the LLM.
     Useful for frontend previews, debugging, and testing layer extraction.
     """
-    if not isinstance(request.template_json, dict):
+    if not isinstance(request.template_json, (dict, list)):
         raise HTTPException(
             status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
-            detail="template_json must be a valid dictionary.",
+            detail="template_json must be a valid dictionary or list.",
         )
 
     pruned = prune_json_for_ai(request.template_json)
@@ -95,10 +95,10 @@ async def edit_template_endpoint(request: AIEditRequest):
     4. Mutates deep properties in a clean copy of the production JSON.
     5. Returns the updated JSON and a conversational explanation.
     """
-    if not isinstance(request.template_json, dict):
+    if not isinstance(request.template_json, (dict, list)):
         raise HTTPException(
             status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
-            detail="template_json must be a valid dictionary.",
+            detail="template_json must be a valid dictionary or list.",
         )
 
     if not request.user_prompt or not request.user_prompt.strip():
@@ -122,6 +122,7 @@ async def edit_template_endpoint(request: AIEditRequest):
         "messages": [HumanMessage(content=request.user_prompt)],
         "template_json": request.template_json,
         "mutations_applied": [],
+        "target_layer_id": request.target_layer_id,
     }
 
     try:
@@ -145,3 +146,4 @@ async def edit_template_endpoint(request: AIEditRequest):
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Template editing failed: {str(e)}",
         )
+

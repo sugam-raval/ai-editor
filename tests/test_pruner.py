@@ -69,3 +69,4 @@ def test_prune_json_handles_malformed_layers():
     assert isinstance(pruned, dict)
     assert "layers" in pruned
     assert "bad_text" in pruned["layers"]
+

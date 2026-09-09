@@ -74,3 +74,4 @@ def normalize_color(color_input: str) -> str:
 
     # If unable to normalize, return the original string to avoid throwing exceptions
     return cleaned
+

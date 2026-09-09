@@ -18,3 +18,4 @@ __all__ = [
     "normalize_color",
     "build_app_graph",
 ]
+

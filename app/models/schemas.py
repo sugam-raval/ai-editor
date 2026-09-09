@@ -1,4 +1,4 @@
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Union
 from pydantic import BaseModel, Field
 
 
@@ -9,15 +9,20 @@ class AIEditRequest(BaseModel):
         description="Natural language instruction from the user detailing edits.",
         examples=["Change the discount badge text to 50% OFF and make it red."]
     )
-    template_json: Dict[str, Any] = Field(
+    template_json: Union[Dict[str, Any], List[Dict[str, Any]]] = Field(
         ...,
-        description="Full production template JSON to be safely mutated."
+        description="Full production template JSON (object or list of objects) to be safely mutated."
+    )
+    target_layer_id: Optional[str] = Field(
+        default=None,
+        description="Optional layer ID to restrict AI modifications exclusively to this layer.",
+        examples=["text_layer_7"]
     )
 
 
 class AIEditResponse(BaseModel):
     """Response payload containing the mutated JSON and AI explanation."""
-    updated_json: Dict[str, Any] = Field(
+    updated_json: Union[Dict[str, Any], List[Dict[str, Any]]] = Field(
         ...,
         description="Updated production template JSON with mutations applied."
     )
@@ -37,9 +42,9 @@ class AIEditResponse(BaseModel):
 
 class PruneRequest(BaseModel):
     """Request payload to inspect the pruned template context sent to the AI."""
-    template_json: Dict[str, Any] = Field(
+    template_json: Union[Dict[str, Any], List[Dict[str, Any]]] = Field(
         ...,
-        description="Full production template JSON to prune."
+        description="Full production template JSON to be pruned."
     )
 
 

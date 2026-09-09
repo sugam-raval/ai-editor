@@ -1,66 +1,45 @@
 {
-  "version": "2.0",
   "canvas": {
-    "width": 1080,
-    "height": 1080,
-    "background": "#F3F4F6"
+    "width": 800,
+    "height": 450,
+    "backgroundColor": "#0f172a"
   },
   "layers": {
     "ROOT": {
-      "type": { "resolvedName": "RootCanvas" },
-      "props": { "width": 1080, "height": 1080 }
+      "id": "ROOT",
+      "type": "canvas",
+      "ai_label": "Canvas Container",
+      "non_editable": true
     },
     "layer-headline-001": {
-      "ai_label": "Main Headline",
+      "id": "layer-headline-001",
       "type": {
-        "resolvedName": "TextLayer",
-        "replacableText": "Summer Super Sale"
+        "resolvedName": "TextLayer"
       },
-      "props": {
-        "doc": {
-          "type": "doc",
-          "content": [
-            {
-              "type": "paragraph",
-              "attrs": {
-                "color": "#1F2937",
-                "fontSize": 36,
-                "lineHeight": 1.2
-              },
-              "content": [
-                {
-                  "type": "text",
-                  "text": "Summer Super Sale"
-                }
-              ]
-            }
-          ]
-        },
-        "colors": ["#1F2937"]
-      }
+      "ai_label": "Main Headline",
+      "text": "Summer Super Sale",
+      "color": "#1F2937",
+      "fontSize": 36
     },
     "layer-discount-002": {
-      "ai_label": "Discount Badge Text",
+      "id": "layer-discount-002",
       "type": {
         "resolvedName": "TextLayer",
         "replacableText": "30% OFF"
       },
+      "ai_label": "Discount Badge",
+      "text": "30% OFF",
+      "color": "#DC2626",
+      "fontSize": 20,
       "props": {
         "doc": {
           "type": "doc",
           "content": [
             {
               "type": "paragraph",
-              "attrs": {
-                "color": "#DC2626",
-                "fontSize": 48,
-                "fontWeight": "bold"
-              },
+              "attrs": { "color": "#DC2626", "fontSize": 20 },
               "content": [
-                {
-                  "type": "text",
-                  "text": "30% OFF"
-                }
+                { "type": "text", "text": "30% OFF" }
               ]
             }
           ]
@@ -69,14 +48,17 @@
       }
     },
     "layer-image-003": {
+      "id": "layer-image-003",
+      "type": "FrameLayer",
       "ai_label": "Middle Food Image",
-      "type": {
-        "resolvedName": "FrameLayer"
-      },
+      "x": 500,
+      "y": 250,
+      "width": 200,
+      "height": 150,
       "props": {
         "image": {
           "url": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
-          "thumb": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=200"
+          "thumb": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c"
         }
       }
     }
