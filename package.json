@@ -1,0 +1,38 @@
+{
+  "name": "ai-video-editor",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "remotion studio",
+    "build": "remotion render src/index.ts MainVideo out/final.mp4",
+    "render": "tsx scripts/render.ts",
+    "ingest": "tsx scripts/ingest.ts",
+    "ai:edit": "tsx ai/cli.ts",
+    "editor": "tsx editor/server.ts",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.36.3",
+    "@remotion/captions": "4.0.264",
+    "@remotion/cli": "4.0.264",
+    "@remotion/google-fonts": "4.0.264",
+    "@remotion/install-whisper-cpp": "4.0.264",
+    "@remotion/player": "^4.0.264",
+    "@remotion/transitions": "4.0.264",
+    "dotenv": "^16.4.7",
+    "fast-glob": "^3.3.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "4.0.264",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.4",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "tsx": "^4.19.3",
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.5"
+  }
+}
