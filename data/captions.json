@@ -1,0 +1,79 @@
+{
+  "words": [
+    {
+      "text": "Welcome",
+      "start": 0,
+      "end": 0.667
+    },
+    {
+      "text": "to",
+      "start": 0.667,
+      "end": 1.333
+    },
+    {
+      "text": "this",
+      "start": 1.333,
+      "end": 2
+    },
+    {
+      "text": "AI-powered",
+      "start": 2,
+      "end": 2.667
+    },
+    {
+      "text": "video",
+      "start": 2.667,
+      "end": 3.333
+    },
+    {
+      "text": "editor",
+      "start": 3.333,
+      "end": 4
+    },
+    {
+      "text": "demonstration.",
+      "start": 4,
+      "end": 4.667
+    },
+    {
+      "text": "You",
+      "start": 4.667,
+      "end": 5.333
+    },
+    {
+      "text": "can",
+      "start": 5.333,
+      "end": 6
+    },
+    {
+      "text": "edit",
+      "start": 6,
+      "end": 6.667
+    },
+    {
+      "text": "everything",
+      "start": 6.667,
+      "end": 7.333
+    },
+    {
+      "text": "using",
+      "start": 7.333,
+      "end": 8
+    },
+    {
+      "text": "natural",
+      "start": 8,
+      "end": 8.667
+    },
+    {
+      "text": "language",
+      "start": 8.667,
+      "end": 9.333
+    },
+    {
+      "text": "prompts.",
+      "start": 9.333,
+      "end": 10
+    }
+  ]
+}

@@ -40,3 +40,13 @@ venv.bak/
 htmlcov/
 *.log
 
+# Node & Remotion Video Editor
+node_modules/
+out/
+data/audio.wav
+data/whisper-words.json
+data/.render-props.json
+whisper.cpp/
+.remotion/
+public/footage/*.mp4
+public/footage/*.wav

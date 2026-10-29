@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "clips": [
+    {
+      "id": "c1",
+      "src": "footage/sample.mp4",
+      "duration": 10,
+      "trimStart": 0,
+      "trimEnd": 10,
+      "volume": 1
+    }
+  ],
+  "overlays": [
+    {
+      "id": "ov_title",
+      "at": 0.5,
+      "duration": 3,
+      "type": "title",
+      "text": "AI Video Editor",
+      "subtitle": "Powered by Remotion & Claude",
+      "color": "#ffffff",
+      "position": "center"
+    },
+    {
+      "id": "ov_lt",
+      "at": 4,
+      "duration": 4,
+      "type": "lowerThird",
+      "name": "Jane Doe",
+      "role": "Creator & Host",
+      "accent": "#ffd400"
+    }
+  ],
+  "captionStyle": {
+    "enabled": true,
+    "position": "bottom",
+    "fontFamily": "Inter, sans-serif",
+    "fontSize": 56,
+    "color": "#ffffff",
+    "highlightColor": "#ffd400",
+    "background": "rgba(0, 0, 0, 0.6)",
+    "maxWordsPerLine": 6,
+    "uppercase": false
+  }
+}
